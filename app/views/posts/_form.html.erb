@@ -1,6 +1,16 @@
 <%= form_for(@post) do |f| %>
+  <% author_id_field(@post) %>
   <label>Post title:</label><br>
   <%= f.text_field :title %><br>
+
+<!-- see below moved to helpers/posts_helper.rb-->
+  <%# if @post.author.nil? %>
+<!--    <%#= f.select :author_id, options_from_collection_for_select(Author.all, :id, :name) %><br>-->
+  <%# end %>
+
+  <%#= f.hidden_field :author_id %>
+
+
 
   <label>Post Description</label><br>
   <%= f.text_area :description %><br>
